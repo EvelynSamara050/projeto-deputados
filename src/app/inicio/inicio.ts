@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Deputado } from '../deputado';
-import { DeputadoService } from '../deputado-service';
+import { DeputadoService } from '../deputado-service.service';
 
 
 @Component({

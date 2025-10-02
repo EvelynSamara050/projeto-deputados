@@ -5,6 +5,5 @@ import { Busca } from './busca/busca';
 export const routes: Routes = [
     {path: 'inicio', component: Inicio},
     {path: 'busca', component: Busca},
-    {path: '', redirectTo: '/inicio'},
-    { pathMatch: 'full'}
+    {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];

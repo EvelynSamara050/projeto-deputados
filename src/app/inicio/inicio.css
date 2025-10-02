@@ -1,0 +1,63 @@
+/* Container principal */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background: #f5f7fa;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Card do deputado */
+.deputado {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.deputado:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Foto do deputado */
+.foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px 0;
+  border: 3px solid #1976d2;
+  transition: border-color 0.3s ease;
+}
+
+.deputado:hover .foto {
+  border-color: #004ba0;
+}
+
+/* Nome do deputado */
+.deputado p strong {
+  font-size: 1.2rem;
+  color: #1976d2;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Texto informativo */
+.deputado p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Partido e UF */
+.deputado p:last-child {
+  font-weight: bold;
+  color: #333;
+  margin-top: 8px;
+}

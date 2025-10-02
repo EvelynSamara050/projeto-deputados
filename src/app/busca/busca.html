@@ -1,1 +1,47 @@
-<p>busca works!</p>
+<div class="container-busca">
+  <h2>Buscar Parlamentar por Nome</h2>
+  <p>Digite ao menos 3 letras do nome do parlamentar.</p>
+
+  <form [formGroup]="buscaForm" (ngSubmit)="buscarDeputado()">
+    <div class="form-group">
+      <label for="nome">Nome do Parlamentar</label>
+
+      <input
+        id="nome"
+        type="text"
+        formControlName="nome"
+        placeholder="Digite o nome aqui"
+        class="form-control"
+      />
+
+      <div *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)" class="alert-danger">
+        <div *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório.
+        </div>
+        <div *ngIf="nome?.errors?.['minlength']">
+          O nome deve ter no mínimo 3 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="buscaForm.invalid" class="btn">Buscar</button>
+  </form>
+
+  <hr />
+
+  <div class="resultados">
+    <h3>Resultados da Busca</h3>
+
+    <div *ngIf="buscaRealizada && resultados.length === 0" class="alert-info">
+      Nenhum parlamentar encontrado.
+    </div>
+
+    <div *ngFor="let deputado of resultados" class="card-deputado">
+      <img [src]="deputado.urlFoto" alt="Foto de {{ deputado.nome }}" />
+      <div class="info">
+        <strong>{{ deputado.nome }}</strong>
+        <span>{{ deputado.siglaPartido }} - {{ deputado.siglaUf }}</span>
+      </div>
+    </div>
+  </div>
+</div>
